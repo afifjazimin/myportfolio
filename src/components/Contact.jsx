@@ -16,7 +16,7 @@ const Contact = () => {
           <p className="contact-desc">
             Feel free to reach out for collaborations, system architecture discussions, or just to say hello. Always open to exploring new opportunities.
           </p>
-          <a href="/cv.pdf" className="btn-download" target="_blank" rel="noopener noreferrer">
+          <a href="/Afif_Jazimin_Web_Dev.pdf" className="btn-download" target="_blank" rel="noopener noreferrer">
             DOWNLOAD CV <ArrowUpRight size={16} />
           </a>
         </div>
