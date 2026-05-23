@@ -1,0 +1,65 @@
+.hero-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 3rem;
+  padding: 80px 5% 0; /* buffer for the fixed header */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('/img/dolomites-mountains-landscape.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.05;
+  color: #FFFFFF;
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 600px;
+  margin: 1.5rem auto 2.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.hero-actions .hero-btn-primary:hover,
+.hero-actions .hero-btn-primary:active {
+  background: #FFFFFF;
+  color: var(--text-primary);
+  border-color: #FFFFFF;
+}
+
+.hero-actions .hero-btn-secondary {
+  background: #FFFFFF;
+  color: var(--text-primary);
+  border-color: #FFFFFF;
+}
+
+.hero-actions .hero-btn-secondary:hover,
+.hero-actions .hero-btn-secondary:active {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.85);
+}
+
+@media (max-width: 768px) {
+  .hero-actions {
+    flex-direction: column;
+  }
+}

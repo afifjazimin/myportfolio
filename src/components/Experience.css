@@ -1,0 +1,224 @@
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  position: relative;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  background-color: #f8f8f8;
+  border: 1px solid var(--grid-line);
+}
+
+.experience-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  position: relative;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+/* Timeline vertical line */
+.experience-item::before {
+  content: '';
+  position: absolute;
+  top: 32px;
+  /* start below the icon box */
+  bottom: -48px;
+  /* stretch to overlap next item's top */
+  left: 11.5px;
+  /* exactly center of the 24px icon box */
+  width: 1px;
+  background-color: var(--grid-line);
+  z-index: 0;
+}
+
+/* Hide line on the last item so it doesn't overhang */
+.experience-item:last-child::before {
+  display: none;
+}
+
+.exp-timeline-node {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.25rem;
+  /* fine tune alignment with text baseline */
+}
+
+.exp-icon-box {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.exp-icon-box.active {
+  background-color: #5C784E;
+  /* Olive Green matching design */
+  color: #FFFFFF;
+  border-color: #5C784E;
+}
+
+.exp-content {
+  flex: 1;
+}
+
+.exp-title-group {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.exp-role {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.exp-company {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-style: italic;
+  text-transform: uppercase;
+  color: #728062;
+  /* Greenish grey tint */
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.exp-year {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+  opacity: 0.8;
+}
+
+.exp-action {
+  padding-top: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.chevron-icon {
+  transition: transform 0.3s ease;
+}
+
+.experience-item.open .chevron-icon {
+  transform: rotate(180deg);
+}
+
+/* Accordion Description Animation */
+.exp-desc-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.experience-item.open .exp-desc-wrapper {
+  grid-template-rows: 1fr;
+}
+
+.exp-desc-inner {
+  overflow: hidden;
+}
+
+.exp-desc,
+.exp-desc-list {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  padding-top: 0;
+  transition: padding-top 0.3s ease;
+  opacity: 0;
+  white-space: pre-line;
+}
+
+.experience-item.open .exp-desc,
+.experience-item.open .exp-desc-list {
+  padding-top: 1rem;
+  opacity: 1;
+}
+
+.exp-desc-list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 0;
+}
+
+.exp-desc-point {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.exp-desc-point::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--grid-line);
+  /* Soft dot color */
+}
+
+.exp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.exp-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background-color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.exp-tag:hover {
+  background-color: var(--text-primary);
+  color: #fff;
+  border-color: var(--text-primary);
+}
+
+.exp-tool {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background-color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+@media (max-width: 768px) {
+  .exp-role {
+    font-size: 1.8rem;
+  }
+
+  .exp-title-group {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+}
